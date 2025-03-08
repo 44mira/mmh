@@ -7,13 +7,23 @@ import (
 	"net/http"
 )
 
-func main() {
-	fmt.Println("Hello world...")
+type Article struct {
+	Title   string
+	Content string
+}
 
+func main() {
 	handler := func(w http.ResponseWriter, r *http.Request) {
 		tmpl := template.Must(template.ParseFiles("index.html"))
 
-		tmpl.Execute(w, nil)
+		ctx := map[string][]Article{
+			"Articles": {
+				{Title: "First article", Content: "hello world!"},
+				{Title: "Second article", Content: "hello world, again!"},
+			},
+		}
+
+		tmpl.Execute(w, ctx)
 	}
 
 	http.HandleFunc("/", handler)
