@@ -2,9 +2,10 @@ services:
   frontend:
     build: .
     command: /usr/src/app/app
+    ports:
+      - 127.0.0.1:8000:8000
     develop:
       watch:
         - action: sync
           path: .
           target: /usr/src/app
-

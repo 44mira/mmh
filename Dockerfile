@@ -5,4 +5,7 @@ WORKDIR /usr/src/app
 COPY go.* ./
 
 COPY . .
+
 RUN go build -v -o ./app .
+
+EXPOSE 8000
