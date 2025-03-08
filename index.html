@@ -1,12 +1,19 @@
-<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title></title>
     <link href="css/style.css" rel="stylesheet" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
   </head>
   <body>
-    <h1>Ok, this is crazy.</h1>
+    <h1 class="text-5xl font-bold p-5">Ok, this is crazy.</h1>
+
+    <h2 class="pl-4 text-2xl">Articles</h2>
+    <div class="flex flex-col gap-2 p-5">
+      {{ range .Articles }}
+      <p>{{ .Title }}: {{ .Content }}</p>
+      {{ end }}
+    </div>
   </body>
 </html>
