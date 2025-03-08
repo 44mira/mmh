@@ -1,0 +1,10 @@
+services:
+  frontend:
+    build: .
+    command: /usr/src/app/app
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /usr/src/app
+
