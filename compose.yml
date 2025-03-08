@@ -1,7 +1,7 @@
 services:
   frontend:
     build: .
-    command: /usr/src/app/app
+    command: air -c .air.toml
     ports:
       - 127.0.0.1:8000:8000
     develop:
