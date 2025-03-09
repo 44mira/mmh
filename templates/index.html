@@ -1,0 +1,47 @@
+{{ define "homepage" }}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script
+      src="https://unpkg.com/htmx.org@2.0.4"
+      integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="bg-gray-900 text-gray-100">
+    <h1 class="pl-4 pt-4 text-3xl font-bold italic">Articles</h1>
+
+    <div class="flex gap-3 p-5">
+      <div class="grow">
+        <h3 class="text-xl font-bold">Article list</h3>
+        <div class="flex flex-col gap-2 p-5">
+          {{ range .Articles }}
+          <div class="flex p-2 gap-2 border border-slate-500">
+            <div
+              class="bg-slate-500 rounded-md text-gray-100 p-2 drop-shadow-md"
+            >
+              {{ .Title }}
+            </div>
+            <div
+              class="bg-slate-700 rounded-md text-gray-100 p-2 drop-shaow-md"
+            >
+              {{ .Content }}
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      <div
+        class="basis-2/5 text-gray-100 bg-slate-400 outline-2 outline-slate-800 rounded-md drop-shadow-lg p-3"
+      >
+        <h3 class="text-xl font-bold">Add a new article</h3>
+        {{ template "add-article" }}
+      </div>
+    </div>
+  </body>
+</html>
+{{ end }}

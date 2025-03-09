@@ -1,0 +1,39 @@
+{{ define "add-article" }}
+
+<form class="p-2 flex flex-col gap-2">
+  <div class="flex flex-col gap-1 mb-2">
+    <label for="article-title">Title</label>
+    <input
+      type="text"
+      name="article-title"
+      id="article-title"
+      class="border border-slate-800 rounded-md px-2 py-1"
+    />
+  </div>
+
+  <div class="flex flex-col gap-1 mb-2">
+    <label for="article-title">Content</label>
+    <textarea
+      name="article-content"
+      id="article-content"
+      rows="1"
+      class="border border-slate-800 rounded-md px-2 py-1 resize-none"
+      oninput="auto_size(this)"
+    ></textarea>
+  </div>
+
+  <input
+    type="submit"
+    class="border rounded-md bg-slate-600 py-2 px-5 text-white font-bold cursor-pointer drop-shadow-md max-w-fit self-center"
+    value="Submit"
+    text="Add Article"
+  />
+</form>
+
+<script>
+  function auto_size(e) {
+    e.style.height = "5px";
+    e.style.height = 0.5 e.scrollHeight + "px";
+  }
+</script>
+{{ end }}

@@ -13,7 +13,7 @@ type Article struct {
 
 func main() {
 	handler := func(w http.ResponseWriter, r *http.Request) {
-		tmpl := template.Must(template.ParseFiles("index.html"))
+		tmpl := template.Must(template.ParseGlob("templates/*.html"))
 
 		ctx := map[string][]Article{
 			"Articles": {
@@ -22,7 +22,7 @@ func main() {
 			},
 		}
 
-		tmpl.Execute(w, ctx)
+		tmpl.ExecuteTemplate(w, "homepage", ctx)
 	}
 
 	http.HandleFunc("/", handler)
